@@ -32,7 +32,7 @@ const EditPost = () => {
       },
     };
     axios
-      .patch(`http://localhost:5000/api/post/${id}`, formData, config)
+      .patch(`/api/post/${id}`, formData, config)
       .then((res) => {
         dispatch({
           type: "ADD_POST",
