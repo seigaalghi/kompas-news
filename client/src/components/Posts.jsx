@@ -24,7 +24,7 @@ const Posts = () => {
           <CardImg
             top
             width="100%"
-            src={`api/file/${post.image}`}
+            src={`${post.image}`}
             alt="Card image cap"
             className="pointer"
             onClick={() => history.push(`/post/${post.id}`)}

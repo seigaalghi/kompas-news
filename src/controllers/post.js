@@ -167,7 +167,7 @@ exports.addPost = async (req, res) => {
     });
 
     const { error } = schema.validate(
-      { ...body, authorId: user.id, image: files.image[0].filename },
+      { ...body, authorId: user.id, image: files.image[0].path },
       { abortEarly: false }
     );
 
@@ -182,7 +182,7 @@ exports.addPost = async (req, res) => {
     const post = await Post.create({
       ...body,
       authorId: user.id,
-      image: files.image[0].filename,
+      image: files.image[0].path,
     });
 
     if (!post) {
@@ -247,7 +247,7 @@ exports.editPost = async (req, res) => {
     });
 
     const { error } = schema.validate(
-      { ...body, image: files.image ? files.image[0].filename : null },
+      { ...body, image: files.image ? files.image[0].path : null },
       { abortEarly: false }
     );
 
@@ -273,7 +273,7 @@ exports.editPost = async (req, res) => {
     const post = await Post.update(
       {
         ...body,
-        image: files.image ? files.image[0].filename : old.dataValues.image,
+        image: files.image ? files.image[0].path : old.dataValues.image,
       },
       { where: { id } }
     );

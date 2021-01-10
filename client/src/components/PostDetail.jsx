@@ -107,7 +107,7 @@ const Example = () => {
       ) : null}
       <Card className="p-3">
         <h2>{state.post.title}</h2>
-        <CardImg top width="100%" src={`/api/file/${state.post.image}`} alt="Card image cap" />
+        <CardImg top width="100%" src={`${state.post.image}`} alt="Card image cap" />
         <CardBody>
           <CardSubtitle tag="h6" className="mb-2 text-muted">
             Posted By. {state.post.author.name} at {new Date(state.post.createdAt).toDateString()}
