@@ -193,7 +193,11 @@ exports.addPost = async (req, res) => {
     }
 
     if (body.tag) {
-      await Promise.all(body.tag.map((tg) => Tag.create({ postId: post.id, tag: tg })));
+      if (Array.isArray(body.tag)) {
+        await Promise.all(body.tag.map((tg) => Tag.create({ postId: post.id, tag: tg })));
+      } else {
+        await Tag.create({ postId: post.id, tag: body.tag });
+      }
     }
 
     const response = await Post.findOne({
