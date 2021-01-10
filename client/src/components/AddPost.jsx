@@ -27,7 +27,7 @@ const AddPost = () => {
       },
     };
     axios
-      .post("http://localhost:5000/api/post", formData, config)
+      .post("/api/post", formData, config)
       .then((res) => {
         dispatch({
           type: "ADD_POST",
