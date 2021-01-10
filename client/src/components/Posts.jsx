@@ -16,7 +16,7 @@ const Posts = () => {
     });
   }, []);
 
-  return state.posts.length === 0 ? null : (
+  return state.posts.length < 1 ? null : (
     <div>
       <h1>News</h1>
       {state.posts.map((post) => (
