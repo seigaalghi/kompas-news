@@ -130,6 +130,7 @@ const reducer = (state, action) => {
     case "DELETE_POST":
       return {
         ...state,
+        posts: state.posts.map((post) => post.id !== payload.postId),
       };
     case "ADD_COMMENT":
       return {
